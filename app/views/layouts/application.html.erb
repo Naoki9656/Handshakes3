@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header>
+     <div class="header-logo">
+       <%= link_to home_top_path do %> <%= image_tag 'header-logo.png' %> <% end %>
+     </div>
+     <ul class="header-menus">
+       <li>
+         <%= link_to home_top_path do %> <%= image_tag 'manpen.png' %> <% end %>
+       </li>
+       <li>
+       </li>
+       <li>
+       </li>
+     </ul>
+   </header>
+
     <%= yield %>
   </body>
 </html>
