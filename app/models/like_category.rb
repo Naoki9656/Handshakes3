@@ -1,0 +1,2 @@
+class LikeCategory < ApplicationRecord
+end
