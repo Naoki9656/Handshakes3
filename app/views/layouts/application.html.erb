@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -15,8 +16,8 @@
        <%= link_to home_top_path do %> <%= image_tag 'header-logo.png' %> <% end %>
      </div>
      <ul class="header-menus">
-       <li>
-         <%= link_to home_top_path do %> <%= image_tag 'manpen.png' %> <% end %>
+       <li id="modal-open" class="button-link">
+          <%= image_tag 'manpen.png' %>
        </li>
        <li>
        </li>
@@ -26,5 +27,8 @@
    </header>
 
     <%= yield %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script src="application"></script>
   </body>
 </html>
