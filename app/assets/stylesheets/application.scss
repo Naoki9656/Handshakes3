@@ -200,10 +200,19 @@ padding: 10px 0 0 10px;
 	margin:1.5em auto 0;
 	padding:100px 100px;
 	border:2px solid #aaa;
-	background:#fff;
+  background-color: #fff;
 	z-index:2;
   position:fixed;
   display: none;
+}
+#modal-actionmenu{
+  width:20%;
+  height: 100%;
+  padding:50px 50px;
+  background-color: rgba(150, 150,150, 0.3);
+  z-index:2;
+  position:fixed;
+  opacity: 0;
 }
 
 .modal-p{
