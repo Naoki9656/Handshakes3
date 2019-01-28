@@ -221,6 +221,33 @@
    margin-top: 10px;
  }
 
+ .push-close img{
+  float:right;
+  width:30px;
+  height:30px;
+}
+
+.push-submit img{
+  float:right;
+  width:30px;
+  height:30px;
+  margin-right: 48px;
+}
+
+.submit-title textarea{
+  resize: none;
+  width:95%;
+  height:40px;
+  margin:40px 15px 5px 15px;
+}
+
+.submit-text textarea{
+  resize: none;
+  width:95%;
+  height:260px;
+  margin:0px 15px 10px 15px;
+}
+
  #modal-open{
    float: left;
    line-height: 64px;
@@ -230,15 +257,17 @@
  }
 
  #modal-content{
- 	width:50%;
- 	margin:1.5em auto 0;
- 	padding:100px 100px;
- 	border:2px solid #aaa;
-   background-color: #fff;
- 	z-index:2;
-   position:fixed;
-   display: none;
- }
+	width:45%;
+  height:400px;
+	margin:1.5em auto 0;
+	border:2px solid #aaa;
+  background-color: #fff;
+	z-index:2;
+  position:fixed;
+  display: none;
+}
+
+
  #modal-actionmenu{
    width: 200px;
    height: 100%;
