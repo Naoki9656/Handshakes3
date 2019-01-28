@@ -82,8 +82,7 @@
  }
 
  .button-link{
- 	color:#00f;
- 	text-decoration:underline;
+
  }
 
  .button-link:hover{
@@ -110,7 +109,7 @@
    line-height: 50px;
  }
  .header-logo img{
-   width: 200px;
+   width: 250px;
    height: 70px;
  }
 
@@ -233,19 +232,39 @@
   height:30px;
   margin-right: 48px;
 }
-
+/*
 .submit-title textarea{
+
+}
+*/
+.submit-text textarea{
+    resize: none;
+    width:95%;
+    height:260px;
+    margin:0px 15px 10px 15px;
+}
+
+.content-checkbox {
+  float: left;
+  display: inline-block;
+}
+
+#p01 textarea{
   resize: none;
   width:95%;
   height:40px;
   margin:40px 15px 5px 15px;
 }
 
-.submit-text textarea{
+#p02 {
+  height:40px;
+  margin:40px 15px 5px 15px;
   resize: none;
-  width:95%;
-  height:260px;
-  margin:0px 15px 10px 15px;
+  display: none;
+}
+
+#content-title {
+  prop:checked;
 }
 
  #modal-open{

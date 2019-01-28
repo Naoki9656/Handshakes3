@@ -36,8 +36,9 @@ $("#modal-open").click( function(){
 
 	//コンテンツをセンタリングする
 	centeringModalSyncer() ;
-
-	//コンテンツをフェードインする
+	$("#content-title").prop("checked", true);
+	$('#p01').fadeIn();
+		//コンテンツをフェードインする
 	$( "#modal-content" ).fadeIn( "slow" ) ;
 
 	//[#modal-overlay]、または[#modal-close]をクリックしたら…
@@ -117,8 +118,40 @@ $("#modal-action").click(function(){
 	//	$( "#modal-actionmenu" ).fadeOut( "slow" );
 	//	$( "#modal-actionmenu" ).css({"display":"none"});
 //} ) ;
+$(function(){
+  // チェックボックスをチェックしたら発動
+  $('input[name="check"]').change(function() {
+
+    // prop()でチェックの状態を取得
+    var prop = $('#content-title').prop('checked');
+    // val()でチェックの状態を取得
+    var val = $('#content-text').prop('checked');
+    // is()でチェックの状態を取得
+
+    // もしpropがチェック状態だったら
 
 
+    // もしvalがチェック状態だったら
+
+		if ($(this).prop('checked')){
+		                    // 一旦全てをクリアして再チェックする
+		                    $('#content-title,#content-text').prop('checked', false);
+		                    $(this).prop('checked', true);
+		                }
+										if (prop) {
+											// propでチェックと出力
+											$('#p01').fadeIn(100);
+										} else {
+											// テキストをリセット
+											$('#p01').fadeOut(100);
+										}
+										if (val) {
+											$('#p02').fadeIn(100);
+										} else {
+											$('#p02').fadeOut(100);
+										}
+		              });
+});
 //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
 $( window ).resize( centeringModalSyncer ) ;
 
