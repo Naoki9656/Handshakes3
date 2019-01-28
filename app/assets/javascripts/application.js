@@ -126,12 +126,6 @@ $(function(){
     var prop = $('#content-title').prop('checked');
     // val()でチェックの状態を取得
     var val = $('#content-text').prop('checked');
-    // is()でチェックの状態を取得
-
-    // もしpropがチェック状態だったら
-
-
-    // もしvalがチェック状態だったら
 
 		if ($(this).prop('checked')){
 		                    // 一旦全てをクリアして再チェックする
@@ -140,15 +134,15 @@ $(function(){
 		                }
 										if (prop) {
 											// propでチェックと出力
-											$('#p01').fadeIn(100);
+											$('#p01').fadeIn(0);
 										} else {
 											// テキストをリセット
-											$('#p01').fadeOut(100);
+											$('#p01').fadeOut(0);
 										}
 										if (val) {
-											$('#p02').fadeIn(100);
+											$('#p02').fadeIn(0);
 										} else {
-											$('#p02').fadeOut(100);
+											$('#p02').fadeOut(0);
 										}
 		              });
 });

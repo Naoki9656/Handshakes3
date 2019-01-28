@@ -224,47 +224,65 @@
   float:right;
   width:30px;
   height:30px;
+  margin: 25px 20px 0 0;
 }
 
 .push-submit img{
   float:right;
   width:30px;
   height:30px;
-  margin-right: 48px;
+  margin: 25px 30px 0 0;
 }
-/*
-.submit-title textarea{
 
-}
-*/
 .submit-text textarea{
     resize: none;
     width:95%;
     height:260px;
     margin:0px 15px 10px 15px;
+    border:none;
+    border-radius:5px;
+    box-shadow: none;
+    background-color: rgba(200, 200, 200, 1);
+    padding: 2px 8px;
+}
+.submit-text textarea:focus{
+  outline: none;
 }
 
-.content-checkbox {
+.content-checkbox{
+  margin: 30px 0 0 30px;
+}
+
+.content-checkbox p{
   float: left;
   display: inline-block;
+  margin-right: 40px;
 }
 
 #p01 textarea{
   resize: none;
   width:95%;
   height:40px;
-  margin:40px 15px 5px 15px;
+  margin:15px 15px 5px 15px;
+  border:none;
+  border-radius:5px;
+  box-shadow: none;
+  background-color: rgba(200, 200, 200, 1);
+  padding: 2px 8px;
+}
+#p01 textarea:focus{
+  outline: none;
 }
 
 #p02 {
   height:40px;
-  margin:40px 15px 5px 15px;
+  margin:75px 15px 5px 15px;
   resize: none;
   display: none;
 }
 
 #content-title {
-  prop:checked;
+float: left;
 }
 
  #modal-open{
