@@ -61,6 +61,7 @@
    background-color: rgba(230, 230, 230, 1);
    margin: 0;
    min-height: 1vh;
+   margin-top: 60px;
  }
 
  .main {
@@ -80,24 +81,37 @@
    clear: both;
  }
 
+ .button-link{
+ 	color:#00f;
+ 	text-decoration:underline;
+ }
+
+ .button-link:hover{
+ 	cursor:pointer;
+ 	color:#f00;
+ }
+
  /* ヘッダー ================================ */
  header {
    transform: translate3d(0, 0, 0);
-   height: 50px;
+   height: 60px;
    position: fixed;
    top:0;
    z-index: 10;
    width: 100%;
-   background-color: rgba(70, 20, 10, 0.9);
+   background-color: rgba(70, 20, 10, 1);
  }
 
  .header-logo {
    float: left;
-   padding-top: 5px;
    padding-left: 20px;
    color: white;
    font-size: 22px;
    line-height: 50px;
+ }
+ .header-logo img{
+   width: 200px;
+   height: 70px;
  }
 
  .header-logo a{
@@ -117,6 +131,11 @@
    padding-left: 15px;
  }
 
+ .header-menus img{
+   width: 45px;
+   height: 45px;
+ }
+
  .header-menus a {
    float: left;
    font-size: 13px;
@@ -134,6 +153,111 @@
    color: white;
    margin: 0;
    font-size: 13px;
+ }
+ .user-name{
+   text-align: center;
+   font-size: 20px;
+   border-bottom: solid 5px #87CEFA;
+   margin: 0 20px 10px 20px;
+ }
+
+ .action-menus{
+   float: right;
+   display: inline-block;
+   margin-left: 5px;
+ }
+
+ .action-menus li{
+   float: left;
+   line-height: 64px;
+   font-size: 13px;
+   color: white;
+ }
+
+ .menus-button{
+   margin-right: 5px;
+   margin-top: 5px;
+   background-color: rgba(70, 20, 10, 1);
+ }
+ .menus-button img{
+   width: 60px;
+   height: 60px;
+ }
+ .action-menus li:nth-of-type(1) img{
+   width: 50px;
+   height: 50px;
+   margin:5px;
+ }
+ .action-menus li:nth-of-type(2) img{
+   width: 60px;
+   height: 50px;
+   margin:5px 0;
+ }
+ .action-menus li:nth-of-type(3) img{
+   width: 50px;
+   height: 50px;
+   margin:5px;
+ }
+ .action-menus li:nth-of-type(5) img{
+   width: 50px;
+   height: 50px;
+   margin: 0 5px 10px;
+ }
+
+ .account-img img{
+   width: 100px;
+   height: 100px;
+   margin: 0 50px 20px 50px;
+ }
+ .action-option {
+   color: #fff;
+   font-size: 17px;
+   margin-top:350px;
+ }
+
+ .action-option p{
+   background-color: rgba(70, 20, 10, 1);
+   padding-left: 10px;
+   margin-top: 10px;
+ }
+
+ #modal-open{
+   float: left;
+   line-height: 64px;
+   font-size: 13px;
+   color: white;
+   padding-left: 15px;
+ }
+
+ #modal-content{
+ 	width:50%;
+ 	margin:1.5em auto 0;
+ 	padding:100px 100px;
+ 	border:2px solid #aaa;
+   background-color: #fff;
+ 	z-index:2;
+   position:fixed;
+   display: none;
+ }
+ #modal-actionmenu{
+   width: 200px;
+   height: 100%;
+   padding-top: 50px;
+   background-color: rgba(50, 50, 50, 0.3);
+   z-index:2;
+   position:fixed;
+   opacity: 0;
+ }
+
+ #modal-overlay{
+ 	z-index:1;
+ 	display:none;
+ 	position:fixed;
+ 	top:0;
+ 	left:0;
+ 	width:100%;
+ 	height:120%;
+ 	background-color:rgba(0,0,0,0.75);
  }
 
  /* top ================================ */
@@ -178,70 +302,14 @@
  }
 
 .top-favorite{
-  height: 50px;
+  font-size: 20px;
+  height: 40px;
   width: 100%;
-  padding-top: 50px;
   background-color: rgba(150, 150, 150, 0.8);
-}
-.top-favorite p{
-font-size: 20px;
-padding: 10px 0 0 10px;
-}
-#modal-open{
-  float: left;
-  line-height: 64px;
-  font-size: 13px;
-  color: white;
-  padding-left: 15px;
-}
-
-#modal-content{
-	width:50%;
-	margin:1.5em auto 0;
-	padding:100px 100px;
-	border:2px solid #aaa;
-  background-color: #fff;
-	z-index:2;
-  position:fixed;
-  display: none;
-}
-#modal-actionmenu{
-  width:20%;
-  height: 100%;
-  padding:50px 50px;
-  background-color: rgba(150, 150,150, 0.3);
-  z-index:2;
-  position:fixed;
-  opacity: 0;
-}
-
-.modal-p{
-	margin-top:1em;
-}
-
-.modal-p:first-child{
-	margin-top:0;
-}
-
-
-
-#modal-overlay{
-	z-index:1;
-	display:none;
-	position:fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:120%;
-	background-color:rgba(0,0,0,0.75);
 }
 
 #modal-main-content{
-  width:40px;
-  height: 50px;
-  padding:50px 50px;
-  background-color: #fff;
-  float:left;
+  font-size: 13px;
 }
 
 #modal-main-content-detail{
@@ -254,31 +322,23 @@ padding: 10px 0 0 10px;
   position:fixed;
   display: none;
 }
+
+.modal-p{
+	margin-top:1em;
+}
+
+.modal-p:first-child{
+	margin-top:0;
+}
+
 .top-main-content{
-  padding: 0 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
   float: left;
-  line-height: 64px;
-  color: white;
-  margin: 0;
-  font-size: 13px;
+  margin:10px;
 }
 
-.button-link{
-	color:#00f;
-	text-decoration:underline;
-}
-
-.button-link:hover{
-	cursor:pointer;
-	color:#f00;
-}
-
-/*
-.top-main-content {
-  float: right;
-  padding-right: 20px;
-}
-*/
  /* about ================================ */
 /*
  .about-main {

@@ -56,6 +56,8 @@ $("#modal-open").click( function(){
 	} ) ;
 
 } ) ;
+
+
 $("#modal-action").click(function(){
 
 		rightingModalSyncer();
@@ -77,9 +79,9 @@ $("#modal-action").click(function(){
 	$("#modal-main-content").click( function(){
 
 		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
-		//$( this ).blur() ;	//ボタンからフォーカスを外す
-		//if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない (防止策1)
-		//if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
+		$( this ).blur() ;	//ボタンからフォーカスを外す
+		if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない (防止策1)
+		if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
 
 
 		//オーバーレイを出現させる
@@ -144,7 +146,7 @@ $( window ).resize( centeringModalSyncer ) ;
 		//センタリングを実行する関数
 		function rightingModalSyncer() {
 
-			$( "#modal-actionmenu" ).css( {"left": "80%"} ) ;
+			$( "#modal-actionmenu" ).css( {"right": "0%"} ) ;
 
 		}
 
