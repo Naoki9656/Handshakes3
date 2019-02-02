@@ -24,11 +24,16 @@
     <% @posts.each do |post| %>
     <li>
       <div class="button-link modal-main-content">
-        <p class="main-content-title"><span><%= post.title %></span></p>
-        <p class="main-content-text"><%= post.content %></p>
+        <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
+        <p class="main-content-text"><%= post.content.truncate(80) %></p>
+      </div>
+      <p class="main-content-borderline"></p>
+      <div class="handshake-image button-link">
+        <%= image_tag 'handshake.png' %>
       </div>
     </li>
     <% end %>
+
   </div>
   <div id="modal-main-content-detail">
   </div>
