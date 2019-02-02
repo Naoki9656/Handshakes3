@@ -49,8 +49,9 @@ $("#modal-open").click( function(){
 
 			//[#modal-overlay]を削除する
 			$('#modal-overlay').remove() ;
-
-
+			$('#content-title,#content-text').prop('checked', false);
+			$('#p01').fadeOut("slow");
+			$('#p02').fadeOut("slow");
 
 		} ) ;
 
@@ -65,11 +66,13 @@ $("#modal-action").click(function(){
 
 		if($('#modal-actionmenu').css('opacity')==0){
 
-	  	$("#modal-actionmenu").animate({opacity: 1});
+	  	$("#modal-actionmenu").animate({opacity: 1,
+																			"z-index": 3},10);
 
 		}else{
 
-			$("#modal-actionmenu").animate({opacity: 0});
+			$("#modal-actionmenu").animate({opacity: 0,
+																			"z-index": 0},10);
 
 		}
 
@@ -77,7 +80,7 @@ $("#modal-action").click(function(){
 
 
 
-	$("#modal-main-content").click( function(){
+	$(".modal-main-content").click( function(){
 
 		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
 		$( this ).blur() ;	//ボタンからフォーカスを外す
@@ -110,14 +113,7 @@ $("#modal-action").click(function(){
 		} ) ;
 
 	} ) ;
-	//[#modal-overlay]、または[#modal-close]をクリックしたら…
 
-//	$( "#modal-action" ).unbind().click( function(){
-
-		//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-	//	$( "#modal-actionmenu" ).fadeOut( "slow" );
-	//	$( "#modal-actionmenu" ).css({"display":"none"});
-//} ) ;
 $(function(){
   // チェックボックスをチェックしたら発動
   $('input[name="check"]').change(function() {

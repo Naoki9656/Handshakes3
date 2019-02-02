@@ -17,16 +17,28 @@
       <p>気になるジャンル</p>
     </div>
 
-
-    <div class="top-main-content">
-      <div id="modal-main-content" class="button-link">
-        <p class="content-title">aaaaaaaaaaaaaaaa</p>
-        <p class="content-text">cccccccccccccccccc</p>
+<div class="top-main-content-group">
+</div>
+  <div class="top-main-content">
+    <p class="content-heading">『週間』</p>
+    <% @posts.each do |post| %>
+    <li>
+      <div class="button-link modal-main-content">
+        <p class="main-content-title"><span><%= post.title %></span></p>
+        <p class="main-content-text"><%= post.content %></p>
       </div>
-    </div>
+    </li>
+    <% end %>
+  </div>
+  <div id="modal-main-content-detail">
+  </div>
 
 
-<div id="modal-main-content-detail"</div>
+
+
+
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
