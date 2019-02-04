@@ -44,6 +44,7 @@
    margin: 0;
  }
 
+
  input {
    background-color: transparent;
    outline-width: 0;
@@ -451,11 +452,17 @@ float: left;
 
 /* Q&A ================================ */
 /* 親の[ul] */
+
+.qa{
+  margin-top: 100px;
+  font-size: 30px;
+}
 .syncer-acdn-parent
 {
 	width: 1000px ;
 	margin-right: auto;
   margin-left: auto;
+  margin-top: 100px;
 }
 
 /* 子の[ul] */
