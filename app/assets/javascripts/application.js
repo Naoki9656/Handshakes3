@@ -95,13 +95,16 @@ $("#modal-action").click(function(){
 		//コンテンツをセンタリングする
 		centeringModalSyncer2() ;
 		//コンテンツをフェードインする
-		$( "#modal-main-content-detail" ).fadeIn( "slow" ) ;
+		var index = $( this ).attr("id");
+		alert(index);
+		var classname = '.' + 'index';
+		$( ".index-datail" ).fadeIn( "slow" ) ;
 
 		//[#modal-overlay]、または[#modal-close]をクリックしたら…
 		$( "#modal-overlay").unbind().click( function(){
 
 			//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-			$( "#modal-main-content-detail,#modal-overlay" ).fadeOut( "slow" , function(){
+			$( ".index-datail,#modal-overlay" ).fadeOut( "slow" , function(){
 
 				//[#modal-overlay]を削除する
 				$('#modal-overlay').remove() ;
@@ -113,7 +116,6 @@ $("#modal-action").click(function(){
 		} ) ;
 
 	} ) ;
-
 $(function(){
   // チェックボックスをチェックしたら発動
   $('input[name="check"]').change(function() {

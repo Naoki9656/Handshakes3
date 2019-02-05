@@ -4,6 +4,10 @@ class HomeController < ApplicationController
   end
 
   def question
+
+  end
+
+  def mail
     
   end
 end

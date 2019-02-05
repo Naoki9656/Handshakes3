@@ -23,13 +23,18 @@
     <p class="content-heading">『週間』</p>
     <% @posts.each do |post| %>
     <li>
-      <div class="button-link modal-main-content">
+      <% @post = post.id %>
+      <div class="button-link modal-main-content" id="#{<% @post %>}-datail">
         <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
         <p class="main-content-text"><%= post.content.truncate(80) %></p>
       </div>
       <p class="main-content-borderline"></p>
       <div class="handshake-image button-link">
         <%= image_tag 'handshake.png' %>
+      </div>
+      <div id="modal-main-content-detail" class="index-datail">
+        <%= post.title %>
+        <%= post.content %>
       </div>
     </li>
     <% end %>
