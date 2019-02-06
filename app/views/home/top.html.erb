@@ -23,8 +23,8 @@
     <p class="content-heading">『週間』</p>
     <% @posts.each do |post| %>
     <li>
-      <% @post = post.id %>
-      <div class="button-link modal-main-content" id="#{<% @post %>}-datail">
+      <% @number= post.id %>
+      <div class="button-link modal-main-content" id="-datail">
         <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
         <p class="main-content-text"><%= post.content.truncate(80) %></p>
       </div>

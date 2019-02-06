@@ -147,8 +147,7 @@ $(function(){
 
 
 // [.syncer-acdn]にクリックイベントを設定する
-$( '.syncer-acdn' ).click( function()
-{
+$( '.syncer-acdn' ).click( function(){
 	// [data-target]の属性値を代入する
 	var target = $( this ).data( 'target' ) ;
 
