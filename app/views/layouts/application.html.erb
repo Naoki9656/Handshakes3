@@ -63,7 +63,7 @@
         <li class="menus-button button-link">
           <%= link_to home_mail_path do %> <%= image_tag 'mail.png'%> <% end %>
         </li>
-        <li class="menus-button button-link">
+        <li id="modal-setup" class="menus-button button-link">
           <%= image_tag 'setup.png'%>
         </li>
         <li class="menus-button button-link">
@@ -73,16 +73,40 @@
         </li>
      </ul>
      <div class="action-option">
-       <p class="button-link"><%= link_to 'Q&A', '/home/question' %></p>
+       <p class="button-link  question-color"><%= link_to 'Q&A', '/home/question',:style=>"color:white;" %></p>
        <p id="modal-feedback" class="button-link">フィードバックの送信</p>
        <p class="button-link">Handshakesについて</p>
      </div>
    </div>
+
    <div id="modal-feedback-screen">
     <p class="feedback-title">フィードバックの送信</p>
     <button type="button" id="feedbackClose" class="close">&times;</button>
     <textarea placeholder="お客様の思いをできる範囲で汲み取りながら向上して行きたいと考えています。ですので、ご意見や、感想、問題点をご記入いただければ嬉しいです。"></textarea>
     <input type="submit" value="送信">
+   </div>
+
+   <div id="modal-setup-screen">
+     <p class="setup-title">コミュニティ機能と投稿機能をご利用いただく前にアカウントの登録をお願い致します。</p>
+     <%= image_tag 'account.png'%>
+    <div class="setup-name">
+      <textarea placeholder="name"></textarea>
+    </div>
+     <div class="setup-textarea">
+       <li>
+         <p>メールアドレス</p>
+         <textarea></textarea>
+       </li>
+       <li>
+         <p>パスワード</p>
+         <textarea></textarea>
+       </li>
+       <li>
+         <p>パスワード　確認</p>
+         <textarea></textarea>
+       </li>
+     </div>
+     <input type="submit" value="確認">
    </div>
 
     <%= yield %>

@@ -58,7 +58,6 @@ $("#modal-open").click( function(){
 	} ) ;
 
 } ) ;
-$(function(){
   // チェックボックスをチェックしたら発動
   $('input[name="check"]').change(function() {
 
@@ -69,23 +68,23 @@ $(function(){
 
 		if ($(this).prop('checked')){
 		                    // 一旦全てをクリアして再チェックする
-		                    $('#content-title,#content-text').prop('checked', false);
-		                    $(this).prop('checked', true);
-		                }
-										if (prop) {
-											// propでチェックと出力
-											$('#p01').fadeIn(0);
-										} else {
-											// テキストをリセット
-											$('#p01').fadeOut(0);
-										}
-										if (val) {
-											$('#p02').fadeIn(0);
-										} else {
-											$('#p02').fadeOut(0);
-										}
-		              });
-});
+		  $('#content-title,#content-text').prop('checked', false);
+		  $(this).prop('checked', true);
+		}
+		if (prop) {
+			$('#p01').fadeIn(0);
+			$('#p02').fadeOut(0);
+		} else {
+			// テキストをリセット
+			$('#p01').fadeOut(0);
+		}
+		if (val) {
+			$('#p02').fadeIn(0);
+			$('#p01').fadeOut(0);
+		} else {
+			$('#p02').fadeOut(0);
+		}
+	});
 
 $("#modal-action").click(function(){
 
@@ -117,6 +116,28 @@ $("#modal-action").click(function(){
 
 			//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
 			$( "#modal-feedback-screen" ).fadeOut( "slow" ) ;
+
+		} ) ;
+
+	} ) ;
+
+	$("#modal-setup").click( function(){
+
+		$( "body" ).append( '<div id="modal-overlay"></div>' ) ;
+		$( "#modal-overlay" ).fadeIn( "slow" ) ;
+		//コンテンツをセンタリングする
+			centeringModalSyncer4();
+
+			//コンテンツをフェードインする
+		$( "#modal-setup-screen" ).fadeIn( "slow" ) ;
+
+		//[#modal-overlay]、または[#modal-close]をクリックしたら…
+		$( "#modal-overlay" ).unbind().click( function(){
+
+			//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
+			$( "#modal-setup-screen,#modal-overlay" ).fadeOut( "slow", function(){
+				$('#modal-overlay').remove() ;
+			} ) ;
 
 		} ) ;
 
@@ -259,5 +280,26 @@ $( window ).resize( centeringModalSyncer ) ;
 					$( "#modal-feedback-screen" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
 
 				}
+
+				$( window ).resize( centeringModalSyncer4 ) ;
+
+					//センタリングを実行する関数
+					function centeringModalSyncer4() {
+
+						//画面(ウィンドウ)の幅、高さを取得
+						var w = $( window ).width() ;
+						var h = $( window ).height() ;
+
+						// コンテンツ(#modal-content)の幅、高さを取得
+						// jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+				//		var cw = $( "#modal-content" ).outerWidth( {margin:true} );
+				//		var ch = $( "#modal-content" ).outerHeight( {margin:true} );
+						var cw = $( "#modal-setup-screen" ).outerWidth();
+						var ch = $( "#modal-setup-screen" ).outerHeight();
+
+						//センタリングを実行する
+						$( "#modal-setup-screen" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+
+					}
 
 } ) ;
