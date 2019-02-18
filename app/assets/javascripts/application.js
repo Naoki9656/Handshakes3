@@ -193,7 +193,19 @@ $( '.syncer-acdn' ).click( function(){
 } ) ;
 
 
+$(function(){
 
+    //.accordion2の中のp要素がクリックされたら
+	$('.mail-list').click(function(){
+
+		//クリックされた.accordion2の中のp要素に隣接する.accordion2の中の.innerを開いたり閉じたりする。
+		$(this).next('.inner').slideToggle();
+
+		//クリックされた.accordion2の中のp要素以外の.accordion2の中のp要素に隣接する.accordion2の中の.innerを閉じる
+		$('.mail-list').not($(this)).next('.inner').slideUp();
+
+	});
+});
 
 
 
