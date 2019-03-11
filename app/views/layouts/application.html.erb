@@ -7,7 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+    <script src="application"></script>
   </head>
 
   <body>
@@ -15,6 +17,12 @@
      <div class="header-logo">
        <%= link_to home_top_path do %> <%= image_tag 'header-logo.png' %> <% end %>
      </div>
+     <dl class="searchbox">
+      <%= search_form_for @search, url: home_index_path do |f| %>
+        <dt><%= f.text_field :title_or_content_cont, placeholder: '検索するテキストを入力...' %></dt>
+        <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+      <% end %>
+     </dl>
      <ul class="header-menus">
        <li id="modal-open" class="button-link">
           <%= image_tag 'manpen2.png' %>
@@ -22,28 +30,36 @@
        <li id="modal-action" class="button-link">
          <%= image_tag 'account.png' %>
        </li>
-       <li>
-       </li>
      </ul>
    </header>
+
    <div id="modal-content">
-     <p class="push-close"><a id="modal-close" class="button-link">
-       <%= image_tag 'batu.png' %>
-     </a></p>
-     <p class="push-submit"><a id="modal-submit"class="button-link">
-       <%= image_tag 'submit.png' %>
-     </a></p>
-     <div class="content-checkbox">
-       <p><input type="checkbox" name="check" value="prop" id="content-title">タイトル</p>
-       <p><input type="checkbox" name="check" value="prop" id="content-text">画像挿入</p>
+     <div class="modal-content-set">
+       <%= form_tag("/home/create") do %>
+       <p class="push-close"><a id="modal-close" class="button-link">
+         <%= image_tag 'batu.png' %>
+       </a></p>
+       <p id="modal-submit" class="push-submit">
+         <input type="image" src="/assets/submit-f629c54f1c9984b668aa7b5f9387540b20cc639669f207e6eaddaa23f24e61a7.png" style="
+             width: 30px;
+             height: 30px;
+         ">
+       </p>
+       <div class="content-checkbox">
+         <p><input type="checkbox" name="check" value="prop" id="content-title">タイトル</p>
+         <p><input type="checkbox" name="check" value="prop" id="content-text">画像挿入</p>
+       </div>
+
+      <p id="p01" class="submit-title">
+        <input name="title">
+      </p>
+      <p id="p02"><input type="file" name="image"></p>
+        <div class="submit-text">
+          <textarea name="content" rows="8" cols="80"></textarea>
+        </div>
+        <%end%>
      </div>
-    <p id="p01" class="submit-title">
-      <textarea></textarea>
-    </p>
-    <p id="p02"><input type="file" name="image"></p>
-      <div class="submit-text">
-        <textarea></textarea>
-      </div>
+
     </div>
 
    <div id="modal-overlay"></div>
@@ -58,7 +74,7 @@
           <%= image_tag 'comment.png'%>
         </li>
         <li class="menus-button button-link">
-          <%= image_tag 'bin.png'%>
+          <%= link_to community_top_path do %><%= image_tag 'bin.png'%><% end %>
         </li>
         <li class="menus-button button-link">
           <%= link_to home_mail_path do %> <%= image_tag 'mail.png'%> <% end %>
@@ -86,32 +102,34 @@
     <input type="submit" value="送信">
    </div>
 
+<%= form_tag("/users/create") do %>
    <div id="modal-setup-screen">
      <p class="setup-title">コミュニティ機能と投稿機能をご利用いただく前にアカウントの登録をお願い致します。</p>
      <%= image_tag 'account.png'%>
     <div class="setup-name">
-      <textarea placeholder="name"></textarea>
+      <input placeholder="name" name="name">
     </div>
      <div class="setup-textarea">
        <li>
          <p>メールアドレス</p>
-         <textarea></textarea>
+         <input name="email">
        </li>
        <li>
          <p>パスワード</p>
-         <textarea></textarea>
+         <input name="password">
        </li>
        <li>
          <p>パスワード　確認</p>
-         <textarea></textarea>
+         <input name="password_confirmation">
        </li>
      </div>
-     <input type="submit" value="確認">
+     <div class="setup-submit">
+       <input type="submit" value="確認">
+     </div>
    </div>
+<% end %>
 
     <%= yield %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <script src="application"></script>
   </body>
 </html>

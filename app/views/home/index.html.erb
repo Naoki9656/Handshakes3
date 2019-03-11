@@ -9,23 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-      <div class="container">
-        <span><%= image_tag 'icons/logo.honne13.png', class: 'navbar-brand' %></span>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-              <%= link_to '#' do %>
-                <%= image_tag 'icons/heart.png' %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to '#' do %>
-                <%= image_tag 'icons/camera.png' %>
-              <% end %>
-            </li>
-            <h1>aaaaa</h1>
-        </ul>
-      </div>
-    </nav>
+    <div class="top-main-content">
+    <% @search_posts.each do |post| %>
+    <li>
+      <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
+      <p class="main-content-text"><%= post.content.truncate(80) %></p>
+    </li>
+  <% end %>
+</div>
   </body>
 </html>

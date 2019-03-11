@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'ransack'
+
+gem 'bcrypt', '~> 3.1.7'

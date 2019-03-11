@@ -90,19 +90,10 @@ $("#modal-action").click(function(){
 
 		rightingModalSyncer();
 
-		if($('#modal-actionmenu').css('opacity')==0){
-
-	  	$("#modal-actionmenu").animate({opacity: 1,
-																			"z-index": 3},10);
-
-		}else{
-
-			$("#modal-actionmenu").animate({opacity: 0,
-																			"z-index": 0},10);
-
-		}
+	$('#modal-actionmenu').fadeToggle();
 
 	});
+
 	$("#modal-feedback").click( function(){
 
 		//コンテンツをセンタリングする
@@ -146,12 +137,6 @@ $("#modal-action").click(function(){
 
 	$(".modal-main-content").click( function(){
 
-		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
-		$( this ).blur() ;	//ボタンからフォーカスを外す
-		if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない (防止策1)
-		if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
-
-
 		//オーバーレイを出現させる
 		$( "body" ).append( '<div id="modal-overlay"></div>' ) ;
 		$( "#modal-overlay" ).fadeIn( "slow" ) ;
@@ -159,16 +144,13 @@ $("#modal-action").click(function(){
 		//コンテンツをセンタリングする
 		centeringModalSyncer2() ;
 		//コンテンツをフェードインする
-		var index = $( this ).attr("id");
-		alert(index);
-		var classname = '.' + 'index';
-		$( ".index-datail" ).fadeIn( "slow" ) ;
+		$(this).next('.modal-main-content-detail').fadeIn( "slow" ) ;
 
 		//[#modal-overlay]、または[#modal-close]をクリックしたら…
 		$( "#modal-overlay").unbind().click( function(){
 
 			//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-			$( ".index-datail,#modal-overlay" ).fadeOut( "slow" , function(){
+			$( ".modal-main-content-detail,#modal-overlay" ).fadeOut( "slow" , function(){
 
 				//[#modal-overlay]を削除する
 				$('#modal-overlay').remove() ;
@@ -193,20 +175,13 @@ $( '.syncer-acdn' ).click( function(){
 } ) ;
 
 
-$(function(){
+$('.mail-list').click( function(){
 
-    //.accordion2の中のp要素がクリックされたら
-	$('.mail-list').click(function(){
+	$(this).next('.mail-of-text').slideToggle();
 
-		//クリックされた.accordion2の中のp要素に隣接する.accordion2の中の.innerを開いたり閉じたりする。
-		$(this).next('.inner').slideToggle();
+	$('.mail-list').not($(this)).next('.mail-of-text').slideUp();
 
-		//クリックされた.accordion2の中のp要素以外の.accordion2の中のp要素に隣接する.accordion2の中の.innerを閉じる
-		$('.mail-list').not($(this)).next('.inner').slideUp();
-
-	});
-});
-
+} ) ;
 
 
 
@@ -264,11 +239,11 @@ $( window ).resize( centeringModalSyncer ) ;
 				// jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
 		//		var cw = $( "#modal-content" ).outerWidth( {margin:true} );
 		//		var ch = $( "#modal-content" ).outerHeight( {margin:true} );
-				var cw = $( "#modal-main-content-detail" ).outerWidth();
-				var ch = $( "#modal-main-content-detail" ).outerHeight();
+				var cw = $( ".modal-main-content-detail" ).outerWidth();
+				var ch = $( ".modal-main-content-detail" ).outerHeight();
 
 				//センタリングを実行する
-				$( "#modal-main-content-detail" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+				$( ".modal-main-content-detail" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
 
 			}
 
@@ -315,3 +290,29 @@ $( window ).resize( centeringModalSyncer ) ;
 					}
 
 } ) ;
+
+function truncate($text, $length, $ending = '…', $exact = true) {
+		//全角か半角か判断する
+		$len = strlen($text);
+		$mblen = mb_strlen($text,mb_internal_encoding());
+		if ($len !== $mblen) {
+			//全角が含まれているときは指定された文字の半分を上限とする
+			$length = floor($length / 2);
+		}
+
+		if (strlen($text) <= $length) {
+			return $text;
+		} else {
+
+			mb_internal_encoding("UTF-8");
+			if (mb_strlen($text) > $length) {
+				$length -= mb_strlen($ending);
+			if (!$exact) {
+				$text = preg_replace('/¥s+?(¥S+)?$/', '', mb_substr($text, 0, $length+1));
+			}
+				return mb_substr($text, 0, $length).$ending;
+			} else {
+				return $text;
+			}
+		}
+	}

@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -23,25 +22,34 @@
     <p class="content-heading">『週間』</p>
     <% @posts.each do |post| %>
     <li>
-      <% @number= post.id %>
       <div class="button-link modal-main-content" id="-datail">
-        <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
+        <p class="main-content-title"><span><%= post.title.truncate(23)%></span></p>
         <p class="main-content-text"><%= post.content.truncate(80) %></p>
       </div>
-      <p class="main-content-borderline"></p>
-      <div class="handshake-image button-link">
-        <%= image_tag 'handshake.png' %>
+      <div class="modal-main-content-detail">
+        <div class="main-content-set">
+          <div class="content-detail">
+            <p class="datail-title">『<%= post.title %>』</p>
+            <p class="datail-text"><%= post.content %></p>
+          </div>
+          <div class="content-datail-footer">
+            <p class="content-detail-borderline"></p>
+            <div class="handshake-image button-link">
+              <%= image_tag 'handshake.png' %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="modal-main-content-detail" class="index-datail">
-        <%= post.title %>
-        <%= post.content %>
+      <div class="main-content-footer">
+        <p class="main-content-borderline"></p>
+        <div class="handshake-image button-link">
+          <%= image_tag 'handshake.png' %>
+        </div>
       </div>
     </li>
     <% end %>
+  </div>
 
-  </div>
-  <div id="modal-main-content-detail">
-  </div>
 
 
 
