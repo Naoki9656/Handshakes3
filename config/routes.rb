@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/application'
   get 'users/index' => "users#index"
   get 'users/new'
   post 'users/create' => "users#create"
@@ -6,12 +7,13 @@ Rails.application.routes.draw do
   get 'users/update'
 
   get "login" => "users#login_form"
-  post"logout" => "users#logout"
+  post 'users/login' => 'users#login'
+  post"users/logout" => "users#logout"
   get "home/top" => "home#top"
   post "home/create" => "home#create"
   get 'community/top' =>"community#top"
   get 'community/conversation' =>"community#conversation"
-
+  get 'users/new' => 'users#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "home/question" => "home#question"
   get "home/mail" => "home#mail"

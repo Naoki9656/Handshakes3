@@ -1,2 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_tag("/users/create") do %>
+   <div class="create_account">
+     <p class="setup-title">コミュニティ機能と投稿機能をご利用いただく前にアカウントの登録をお願い致します。</p>
+     <%= image_tag 'account.png'%>
+    <div class="setup-name">
+      <input placeholder="name" name="name" value="<%= @user.name %>">
+    </div>
+     <div class="setup-textarea">
+       <li>
+         <p>メールアドレス</p>
+         <input name="email" value="<%= @user.email %>">
+       </li>
+       <li>
+         <p>パスワード</p>
+         <input name="password">
+       </li>
+       <li>
+         <p>パスワード　確認</p>
+         <input name="password_confirmation">
+       </li>
+     </div>
+     <div class="setup-submit">
+       <input type="submit" value="確認">
+     </div>
+   </div>
+<% end %>

@@ -24,6 +24,9 @@
       <% end %>
      </dl>
      <ul class="header-menus">
+       <li class = "button-link">
+         <%= link_to("無料会員登録","/users/new")%>
+       </li>
        <li id="modal-open" class="button-link">
           <%= image_tag 'manpen2.png' %>
        </li>
@@ -83,7 +86,16 @@
           <%= image_tag 'setup.png'%>
         </li>
         <li class="menus-button button-link">
-          <%= image_tag 'login.png'%>
+          <% if session[:user_id]%>
+            <%= form_tag users_logout_path do %><input type="image" src="/assets/logout.png" style="
+                width: 70px;
+                height: 40px;
+            "> <% end %>
+            <%else%>
+              <div id = "modal-login">
+                <%= image_tag 'login.png'%>
+              </div>
+            <%end%>
         </li>
         <li class="menus-button button-link">
         </li>
@@ -136,11 +148,23 @@
         </div>
     <% end %>
 
- <% if session[:user_id]%>
-   <%= image_tag 'logout.png'%>
-   <%else%>
-   <%= image_tag 'login.png'%>
-   <%end%>
+    <%= form_tag("/users/login") do %>
+       <div id="modal-login-form">
+          <div class="login-textarea">
+           <li>
+             <p>メールアドレス</p>
+             <input name="email">
+           </li>
+           <li>
+             <p>パスワード</p>
+             <input name="password">
+           </li>
+         </div>
+         <div class="login-submit">
+           <input type="submit" value="ログイン">
+         </div>
+       </div>
+    <% end %>
 
 
 

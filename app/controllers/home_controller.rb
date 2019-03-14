@@ -3,7 +3,9 @@ class HomeController < ApplicationController
   before_action :set_current_user
 
 
+def application
 
+end
   def index
   @posts = Post.all
   end

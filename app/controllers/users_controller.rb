@@ -36,14 +36,14 @@ class UsersController < ApplicationController
         redirect_to("/home/top")
       else
         @error_message = "メールアドレスまたはパスワードが間違っています"
-        render("users/login_form")
+        render("home/top")
       end
   end
 
   def logout
       session[:user_id] = nil
       flash[:notice] = "ログアウトしました"
-      redirect_to("/login")
-　 end
+      redirect_to("/home/top")
+  end
 
 end
