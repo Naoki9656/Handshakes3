@@ -69,3 +69,7 @@ gem 'jquery-ui-rails'
 gem 'ransack'
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-doc'

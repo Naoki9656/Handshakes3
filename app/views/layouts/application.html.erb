@@ -74,7 +74,7 @@
      <p class="user-name">name</p>
      <ul class="action-menus">
         <li class="menus-button button-link">
-          <%= image_tag 'comment.png'%>
+          <%= link_to home_list_path do %><%= image_tag 'comment.png'%><% end %>
         </li>
         <li class="menus-button button-link">
           <%= link_to community_top_path do %><%= image_tag 'bin.png'%><% end %>
@@ -87,10 +87,9 @@
         </li>
         <li class="menus-button button-link">
           <% if session[:user_id]%>
-            <%= form_tag users_logout_path do %><input type="image" src="/assets/logout.png" style="
-                width: 70px;
-                height: 40px;
-            "> <% end %>
+          <div class="logout-button">
+            <%= form_tag users_logout_path do %><input type="image" src="/assets/logout.png"><% end %>
+          </div>
             <%else%>
               <div id = "modal-login">
                 <%= image_tag 'login.png'%>
@@ -142,7 +141,7 @@
 <% end %>
 
 
-    <%if @eroor_message %>
+    <%if @error_message %>
        <div class="form-error">
          <%= @error_message %>
         </div>

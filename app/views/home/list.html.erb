@@ -1,0 +1,10 @@
+
+    <div class="top-main-content">
+      <% @posts.each do |post| %>
+
+      <li>
+        <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
+        <p class="main-content-text"><%= post.content.truncate(80) %></p>
+      </li>
+      <% end %>
+    </div>

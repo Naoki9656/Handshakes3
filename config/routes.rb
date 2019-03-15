@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   post 'users/login' => 'users#login'
   post"users/logout" => "users#logout"
   get "home/top" => "home#top"
+  get "home/list" => "home#list"
+  post "home/list" => "home#list_index"
   post "home/create" => "home#create"
   get 'community/top' =>"community#top"
   get 'community/conversation' =>"community#conversation"
   get 'users/new' => 'users#new'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "home/question" => "home#question"
   get "home/mail" => "home#mail"
