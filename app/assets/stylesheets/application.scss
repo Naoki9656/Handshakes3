@@ -476,7 +476,7 @@ dl.searchbox dd{
 }
 .search-btn{
   display:block;
-  background:#5fad35;
+  background:#1530db;
   width:100%;
   height:36px;
   line-height:36px;
@@ -486,7 +486,7 @@ dl.searchbox dd{
 }
 
 .search-btn:hover {
-  background:#228B22;
+  background:#0f24aa;
 }
 
 #modal-login-form{
@@ -610,6 +610,11 @@ dl.searchbox dd{
 
 .top-main-content-group{
   float: left;
+
+}
+
+.top-main-content{
+  margin-top: 90px;
 }
 
 .content-heading{
@@ -764,8 +769,12 @@ dl.searchbox dd{
   z-index: 3;
   position: relative;
 }
+/* list ================================ */
 
-
+.destroy-post{
+  float: right;
+  background-color: rgba(230,230,230,1);
+}
  /* community ================================ */
 
 
@@ -778,11 +787,13 @@ dl.searchbox dd{
 
 
 .create_account{
-  height: 550px;
-  width: 350px;
-  position: fixed;
-  z-index: 3;
-  background-color: rgba(220,220,220,1.0);
+ height: 550px;
+ width: 350px;
+ margin-left: 470px;
+ margin-top: 50px;
+ position: fixed;
+ z-index: 3;
+ background-color: rgba(220,220,220,1.0);
 }
 
  /* about ================================ */
@@ -867,7 +878,7 @@ dl.searchbox dd{
  }
 */
  /* フラッシュ ================================ */
- /*
+
  .flash {
    padding: 10px 0;
    color: white;
@@ -880,4 +891,3 @@ dl.searchbox dd{
    border-radius: 0 0 2px 2px;
    font-size: 14px;
  }
-*/

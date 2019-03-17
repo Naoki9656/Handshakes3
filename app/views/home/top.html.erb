@@ -32,6 +32,11 @@
             <p class="content-detail-borderline"></p>
             <div class="handshake-image button-link">
               <%= image_tag 'handshake.png' %>
+              <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
+                          <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy",{method: "post"})%>
+                        <% else %>
+                          <%= link_to("いいね！", "/likes/#{@post.id}/create",{method: "post"})%>
+                        <% end %>
             </div>
           </div>
         </div>
@@ -40,6 +45,11 @@
         <p class="main-content-borderline"></p>
         <div class="handshake-image button-link">
           <%= image_tag 'handshake.png' %>
+          <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
+            <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy",{method: "post"})%>
+          <% else %>
+            <%= link_to("いいね！", "/likes/#{@post.id}/create",{method: "post"})%>
+          <% end %>
         </div>
       </div>
     </li>

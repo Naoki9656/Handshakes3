@@ -1,7 +1,8 @@
-<%= form_tag("/users/create") do %>
+<%= form_tag("/users/create",{multipart:true}) do %>
    <div class="create_account">
      <p class="setup-title">コミュニティ機能と投稿機能をご利用いただく前にアカウントの登録をお願い致します。</p>
      <%= image_tag 'account.png'%>
+     <input name="image"type="file">
     <div class="setup-name">
       <input placeholder="name" name="name" value="<%= @user.name %>">
     </div>
@@ -24,3 +25,8 @@
      </div>
    </div>
 <% end %>
+
+
+
+
+  

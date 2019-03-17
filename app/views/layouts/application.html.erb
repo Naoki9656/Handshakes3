@@ -74,7 +74,7 @@
      <p class="user-name">name</p>
      <ul class="action-menus">
         <li class="menus-button button-link">
-          <%= link_to home_list_path do %><%= image_tag 'comment.png'%><% end %>
+          <%= link_to("/home/list") do %><%= image_tag 'comment.png'%><% end %>
         </li>
         <li class="menus-button button-link">
           <%= link_to community_top_path do %><%= image_tag 'bin.png'%><% end %>
@@ -165,7 +165,11 @@
        </div>
     <% end %>
 
-
+    <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
 
 
 

@@ -1,10 +1,45 @@
 
     <div class="top-main-content">
       <% @posts.each do |post| %>
-
       <li>
-        <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
-        <p class="main-content-text"><%= post.content.truncate(80) %></p>
+        <div class="button-link modal-main-content" id="-datail">
+          <p class="main-content-title"><span><%= post.title.truncate(23) %></span></p>
+          <p class="main-content-text"><%= post.content.truncate(80) %></p>
+        </div>
+        <div class="modal-main-content-detail">
+          <div class="main-content-set">
+            <div class="content-detail">
+              <p class="datail-title">『<%= post.title %>』</p>
+              <p class="datail-text"><%= post.content %></p>
+            </div>
+            <div class="content-datail-footer">
+              <p class="content-detail-borderline"></p>
+              <div class="handshake-image button-link">
+                <%= image_tag 'handshake.png' %>
+                <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
+                  <%= link_to("いいね！済み", "/likes/#{post.id}/destroy",{method: "post"})%>
+                <% else %>
+                  <%= link_to("いいね！", "/likes/#{post.id}/create",{method: "post"})%>
+                <% end %>
+                <div class="destroy-post button-link">
+                  <%= link_to("削除","/home/#{post.id}/destroy",{method: "post"})%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-content-footer">
+          <p class="main-content-borderline"></p>
+          <div class="handshake-image button-link">
+            <%= image_tag 'handshake.png' %>
+            <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
+
+              <%= link_to("いいね！済み", "/likes/#{post.id}/destroy",{method: "post"})%>
+            <% else %>
+              <%= link_to("いいね！", "/likes/#{post.id}/create",{method: "post"})%>
+            <% end %>
+          </div>
+        </div>
       </li>
       <% end %>
     </div>

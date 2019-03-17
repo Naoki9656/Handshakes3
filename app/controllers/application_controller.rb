@@ -8,7 +8,12 @@ class ApplicationController < ActionController::Base
     @search = Post.ransack(params[:q]) #ransackメソッド推奨
     @search_posts = @search.result
   end
-  private
+  def authenticate_user
+    if @current_user == nil
+      flash[:notice] = "ログインが必要です"
+      redirect_to("/home/top")
+    end
+  end
 
   #ストロングパラメーター
   def user_params

@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   post"users/logout" => "users#logout"
   get "home/top" => "home#top"
   get "home/list" => "home#list"
-  post "home/list" => "home#list_index"
   post "home/create" => "home#create"
+  post "home/:post_id/destroy" => "home#destroy"
   get 'community/top' =>"community#top"
   get 'community/conversation' =>"community#conversation"
   get 'users/new' => 'users#new'
+
+  post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "home/question" => "home#question"

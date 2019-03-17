@@ -2,20 +2,19 @@ class HomeController < ApplicationController
 
   before_action :set_current_user
 
+  def application
 
-def application
-
-end
+  end
   def index
   @posts = Post.all
   end
   def top
     @posts = Post.all
   end
-def new
-  @post = Post.new
-  @whisper = Whisper.new
-end
+  def new
+    @post = Post.new
+    @whisper = Whisper.new
+  end
   def create
     @post = Post.new(
       title: params[:title],
@@ -47,17 +46,17 @@ end
     @current_user = User.find_by(id: session[:user_id])
   end
 
-def list_index
-  @posts_list = Post.find_by(user_id: @current_user.id)
-  if @posts_list
-    redirect_to("/home/list")
-  else
-    redirect_to("/home/top")
+  def list
+    @posts = Post.where(user_id: @current_user.id)
   end
-end
-def list
-  @whispers = Whisper.find_by(user_id: @current_user.id)
-  @posts = Post.find_by(id: @whispers.post_id)
-  binding.pry
-end
+
+  def destroy
+    @post = Post.find_by(
+      user_id: @current_user.id,
+      id: params[:post_id]
+    )
+    @post.destroy
+    flash[:notice] = "削除が完了しました"
+    redirect_to("/home/list")
+  end
 end

@@ -10,12 +10,26 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+
     if @user.save
       flash[:notice] = "ユーザー登録が完了しました"
-      redirect_to("/home/top")
     else
-      render("home/top")
+      render("users/new")
     end
+        if params[:image]
+          @user.image_name = "#{@user.id}.png"
+          image = params[:image]
+          File.binwrite("public/user_images/#{@user.image_name}",image.read)
+
+          @user.save
+          redirect_to("/home/top")
+        else
+          @user.image_name ='no-image.png'
+          @user.save
+          redirect_to("/home/top")
+        end
+
+
   end
 
   def edit
