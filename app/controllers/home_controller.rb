@@ -59,4 +59,9 @@ class HomeController < ApplicationController
     flash[:notice] = "削除が完了しました"
     redirect_to("/home/list")
   end
+
+  def not_login
+    flash[:notice] = "ログインまたはアカウント登録をしてください"
+    redirect_to("/home/top")
+  end
 end

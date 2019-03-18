@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post"users/logout" => "users#logout"
   get "home/top" => "home#top"
   get "home/list" => "home#list"
+  get "home/not_login" => "home#not_login"
   post "home/create" => "home#create"
   post "home/:post_id/destroy" => "home#destroy"
   get 'community/top' =>"community#top"

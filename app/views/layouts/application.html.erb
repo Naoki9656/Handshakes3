@@ -24,9 +24,11 @@
       <% end %>
      </dl>
      <ul class="header-menus">
+       <% if @current_user == nil%>
        <li class = "button-link">
          <%= link_to("無料会員登録","/users/new")%>
        </li>
+       <% end %>
        <li id="modal-open" class="button-link">
           <%= image_tag 'manpen2.png' %>
        </li>
