@@ -368,4 +368,7 @@ function truncate($text, $length, $ending = '…', $exact = true) {
 
 						}
 
+
+						
+
 	} ) ;

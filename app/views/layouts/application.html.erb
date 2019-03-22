@@ -71,9 +71,19 @@
 
    <div id="modal-actionmenu" class="header-actionmenu">
      <div class="account-img">
-       <%= image_tag 'account.png'%>
+       <% if @current_user %>
+        <img src="<%= "/user_images/#{@current_user.image_name}"%>">
+      <% else %>
+        <img src="<%= "/user_images/account.png"%>">
+      <% end %>
      </div>
-     <p class="user-name">name</p>
+     <p class="user-name">
+       <% if @current_user %>
+        <%= @current_user.name %>
+      <% else %>
+        guest
+      <% end %>
+     </p>
      <ul class="action-menus">
         <li class="menus-button button-link">
           <%= link_to("/home/list") do %><%= image_tag 'comment.png'%><% end %>

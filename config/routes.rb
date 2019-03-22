@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   get 'home/application'
   get 'users/index' => "users#index"
   get 'users/new'
@@ -26,4 +27,7 @@ Rails.application.routes.draw do
   get "home/mail" => "home#mail"
 
   get 'home/index'
+
+
+
 end
