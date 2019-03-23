@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
         if @user.save
           flash[:notice] = "ユーザー登録が完了しました"
+          session[:user_id] = @user.id
           redirect_to("/home/top")
         else
           flash[:notice] = "登録できませんでした"
@@ -36,6 +37,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    @current_user.name = params[:name]
+    @current_user.email = params[:email]
+    @current_user.password = params[:password]
+    @current_user.password_confirmation = params[:password_confirmation]
+    if @current_user.save
+      flash[:notice] = "編集が完了しました"
+      session[:user_id] = @current_user.id
+      redirect_to("/home/top")
+    else
+      flash[:notice] = "編集ができませんでした"
+      render("home/top")
+    end
   end
 
   def login_form

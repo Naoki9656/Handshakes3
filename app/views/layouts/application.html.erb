@@ -186,11 +186,11 @@
                 </li>
                 <li>
                   <p>パスワード</p>
-                  <input name="password">
+                  <input name="password" value="<%= @current_user.password %>">
                 </li>
                 <li>
                   <p>パスワード　確認</p>
-                  <input name="password_confirmation">
+                  <input name="password_confirmation" value="<%= @current_user.password_confirmation %>">
                 </li>
             </div>
             <div class="setup-submit-update">
