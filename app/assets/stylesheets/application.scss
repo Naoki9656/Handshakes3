@@ -187,6 +187,11 @@
    width: 60px;
    height: 60px;
  }
+
+.menus-button-opacity {
+  opacity: 0.5;
+}
+
  .action-menus li:nth-of-type(1) img{
    width: 50px;
    height: 50px;
@@ -491,17 +496,65 @@ dl.searchbox dd{
 }
 
 #modal-login-form{
-  height: 550px;
-  width: 350px;
+  height: auto;
+  width: 775px;
   display: none;
   position: fixed;
   z-index: 3;
   background-color: rgba(220,220,220,1.0);
+
 }
+.login-textarea0{
+  padding: 0 10px;
+  margin: 0 85px 10px;
+}
+
+.login-daimei{
+ font-size: 24px;
+ padding-top: 40px;
+ padding-bottom: 20px;
+
+}
+
+
+.login-textarea input{
+ width: 280px;
+ line-height: 22px;
+ padding: 6px;
+ background-color: #fff;
+ border: 1px;
+ font-size: 14px;
+ margin-bottom: 15px;
+}
+
+.login-textarea{
+  margin-bottom: 16px;
+}
+
+
+
+.login-submit{
+font-size: 14px;
+line-height: 20px;
+padding: 6px 16px;
+border: 1px;
+border-radius: 100px;
+background-color: #010066;
+color: #fff;
+cursor: pointer;
+font-weight: bold;
+position: relative;
+text-align: center;
+white-space: nowrap;
+width: 100px;
+}
+
+
 .logout-button input{
   width: 60px;
   height: 60px;
 }
+
  /* top ================================ */
 
  .top-main {

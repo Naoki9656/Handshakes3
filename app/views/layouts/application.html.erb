@@ -85,6 +85,7 @@
       <% end %>
      </p>
      <ul class="action-menus">
+       <% if @current_user %>
         <li class="menus-button button-link">
           <%= link_to("/home/list") do %><%= image_tag 'comment.png'%><% end %>
         </li>
@@ -97,18 +98,32 @@
         <li id="modal-setup" class="menus-button button-link">
           <%= image_tag 'setup.png'%>
         </li>
+      <% else %>
+      <div class="menus-button-opacity">
+         <li class="menus-button">
+           <%= image_tag 'comment.png'%>
+         </li>
+         <li class="menus-button">
+           <%= image_tag 'bin.png'%>
+         </li>
+         <li class="menus-button">
+           <%= image_tag 'mail.png'%>
+         </li>
+         <li  class="menus-button">
+           <%= image_tag 'setup.png'%>
+         </li>
+        </div>
+      <% end %>
         <li class="menus-button button-link">
-          <% if session[:user_id]%>
-          <div class="logout-button">
-            <%= form_tag users_logout_path do %><input type="image" src="/assets/logout.png"><% end %>
-          </div>
+            <% if session[:user_id]%>
+                <div class="logout-button">
+                  <%= form_tag users_logout_path do %><input type="image" src="/assets/logout.png"><% end %>
+                </div>
             <%else%>
-              <div id = "modal-login">
-                <%= image_tag 'login.png'%>
-              </div>
+                <div id = "modal-login">
+                  <%= image_tag 'login.png'%>
+                </div>
             <%end%>
-        </li>
-        <li class="menus-button button-link">
         </li>
      </ul>
      <div class="action-option">
@@ -116,7 +131,7 @@
        <p id="modal-feedback" class="button-link">フィードバックの送信</p>
        <p class="button-link">Handshakesについて</p>
      </div>
-   </div>
+  </div>
 
    <div id="modal-feedback-screen">
     <p class="feedback-title">フィードバックの送信</p>
@@ -125,34 +140,6 @@
     <input type="submit" value="送信">
    </div>
 
-<%= form_tag("/users/create") do %>
-   <div id="modal-setup-screen">
-     <p class="setup-title">コミュニティ機能と投稿機能をご利用いただく前にアカウントの登録をお願い致します。</p>
-     <%= image_tag 'account.png'%>
-    <div class="setup-name">
-      <input placeholder="name" name="name">
-    </div>
-     <div class="setup-textarea">
-       <li>
-         <p>メールアドレス</p>
-         <input name="email">
-       </li>
-       <li>
-         <p>パスワード</p>
-         <input name="password">
-       </li>
-       <li>
-         <p>パスワード　確認</p>
-         <input name="password_confirmation">
-       </li>
-     </div>
-     <div class="setup-submit">
-       <input type="submit" value="確認">
-     </div>
-   </div>
-<% end %>
-
-
     <%if @error_message %>
        <div class="form-error">
          <%= @error_message %>
@@ -160,30 +147,58 @@
     <% end %>
 
     <%= form_tag("/users/login") do %>
-       <div id="modal-login-form">
-          <div class="login-textarea">
-           <li>
-             <p>メールアドレス</p>
-             <input name="email">
-           </li>
-           <li>
-             <p>パスワード</p>
-             <input name="password">
-           </li>
-         </div>
-         <div class="login-submit">
-           <input type="submit" value="ログイン">
-         </div>
-       </div>
+     <div id="modal-login-form">
+         <div class="login-textarea0">
+           <p class=login-daimei>handshakesにログイン</p>
+           <div class="login-textarea">
+             <li>
+               <input placeholder="メールアドレス" name="email">
+             </li>
+             <li>
+               <input placeholder="パスワード" name="password">
+             </li>
+           </div>
+           <div class="login-submit">
+               <input type="submit" value="ログイン">
+           </div>
+        </div>
+      </div>
     <% end %>
 
     <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+
+    <% if @current_user %>
+          <%= form_tag("/users/update",{multipart: true}) do %>
+          <div id="modal-setup-screen">
+            <p class="setup-title-update">アカウントの編集ができます。</p>
+            <%= image_tag 'account.png'%>
+            <div class="setup-name-update">
+                <input placeholder="name" name="name" value="<%= @current_user.name %>">
+            </div>
+            <div class="setup-textarea-update">
+                <li>
+                  <p>メールアドレス</p>
+                  <input name="email" value="<%= @current_user.email %>">
+                </li>
+                <li>
+                  <p>パスワード</p>
+                  <input name="password">
+                </li>
+                <li>
+                  <p>パスワード　確認</p>
+                  <input name="password_confirmation">
+                </li>
+            </div>
+            <div class="setup-submit-update">
+                <input type="submit" value="保存">
+            </div>
           </div>
         <% end %>
-
-
+      <% end %>
 
     <%= yield %>
 
