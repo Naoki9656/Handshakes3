@@ -19,8 +19,8 @@
     <% @posts.each do |post| %>
     <li>
       <div class="button-link modal-main-content" id="-datail">
-        <p class="main-content-title"><span><%= post.title.truncate(23)%></span></p>
-        <p class="main-content-text"><%= post.content.truncate(80) %></p>
+        <p class="main-content-title"><span><%= post.title.truncate(12)%></span></p>
+        <p class="main-content-text"><%= post.content.truncate(40) %></p>
       </div>
       <div class="modal-main-content-detail">
         <div class="main-content-set">

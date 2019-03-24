@@ -21,6 +21,17 @@
 
 $(function(){
 
+
+	$( document ).ready(function() {
+	   setTimeout(function(){
+			 $('#notice').fadeOut(1000);
+
+		 },5000);
+
+	});
+
+
+
 //モーダルウィンドウを出現させるクリックイベント
 $("#modal-open").click( function(){
 
@@ -369,6 +380,6 @@ function truncate($text, $length, $ending = '…', $exact = true) {
 						}
 
 
-						
+
 
 	} ) ;

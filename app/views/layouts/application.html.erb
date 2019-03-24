@@ -38,6 +38,13 @@
      </ul>
    </header>
 
+   <% if flash[:notice] %>
+       <div id="notice" class="flash">
+         <%= flash[:notice] %>
+       </div>
+   <% end %>
+
+
    <div id="modal-content">
      <div class="modal-content-set">
        <%= form_tag("/home/create") do %>
@@ -163,12 +170,6 @@
            </div>
         </div>
       </div>
-    <% end %>
-
-    <% if flash[:notice] %>
-        <div class="flash">
-          <%= flash[:notice] %>
-        </div>
     <% end %>
 
     <% if @current_user %>
