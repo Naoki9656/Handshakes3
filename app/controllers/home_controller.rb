@@ -9,7 +9,9 @@ class HomeController < ApplicationController
   @posts = Post.all
   end
   def top
-    @posts = Post.all
+    from  = Time.now.at_beginning_of_day
+    to    = (from + 6.day).at_end_of_day
+    @posts = Post.where(created_at: from...to)
   end
   def new
     @post = Post.new

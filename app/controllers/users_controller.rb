@@ -43,7 +43,6 @@ class UsersController < ApplicationController
     @current_user.password_confirmation = params[:password_confirmation]
     if @current_user.save
       flash[:notice] = "編集が完了しました"
-      session[:user_id] = @current_user.id
       redirect_to("/home/top")
     else
       flash[:notice] = "編集ができませんでした"
